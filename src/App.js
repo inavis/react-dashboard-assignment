@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
+import { Switch, Route, Link,Redirect, useHistory } from "react-router-dom";
+
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -47,29 +49,57 @@ export default App;
 function ColumnsGrid() {
   const [show,setshow] = useState(false);
   const showmore = (show)?( <ChevronLeftIcon/>):(<ChevronRightIcon/>);
+
+  const [visible1,setvisible1] = useState(false);
+  const style1 = (visible1)?{display:"block"}:{display:"none"}
+  const [visible2,setvisible2] = useState(false);
+  const style2 = (visible2)?{display:"block"}:{display:"none"}
+  const [visible3,setvisible3] = useState(false);
+  const style3 = (visible3)?{display:"block"}:{display:"none"}
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} columns={16}>
-        <Grid item xs={2}>
-          
-          
-            <div>
+
+    <div className='main-divider'>
+
+      <div style={{width:"15%"}} className='side-bar'>
+         <div>
               <EmojiEmotionsIcon /> <span><b>SB ADMIN <sup>2</sup></b></span>
             </div>
             <hr></hr>
             <div>
-              <DashboardCustomizeIcon/><span>Dashboard</span>
+              
             </div>
             <hr></hr>
             <div>
               <div><small>Interface</small></div>
-              <div><SettingsIcon/> Components </div>
-              <div><BuildIcon/> Utilities </div>
+              <div><SettingsIcon/> Components <ChevronRightIcon onClick={()=>{setvisible1(!visible1)}}/> </div>
+              <div style={style1}>
+                <div>CUSTOM COMPONENTS</div>
+                <div>Buttons</div>
+                <div>Cards</div>
+              </div>
+              <div><BuildIcon/> Utilities <ChevronRightIcon onClick={()=>{setvisible2(!visible2)}} /> </div>
+              <div style={style2}>
+                <div>CUSTOM UTILITIES</div>
+                <div>Colors</div>
+                <div>Borders</div>
+                <div>Animations</div>
+                <div>Others</div>
+              </div>
             </div>
             <hr></hr>
             <div>
               <div><small>ADDONS</small></div>
-              <div><FolderIcon/> Pages</div>
+              <div><FolderIcon/> Pages <ChevronRightIcon onClick={()=>{setvisible3(!visible3)}}/></div>
+              <div style={style3}>
+                <div>LOGIN SCREENS</div>
+                <div>Login</div>
+                <div>Register</div>
+                <div>Forgot Password</div>
+
+                <div>OTHER PAGES</div>
+                <div>404 Page</div>
+                <div>Blank Page</div>
+              </div>
               <div><WaterfallChartIcon/> Charts</div>
               <div><BackupTableIcon/> Tables</div>
             </div>
@@ -84,9 +114,12 @@ function ColumnsGrid() {
               <div>SB Admin Pro is packed with premium features, components, and more!</div>
               <div><Button variant="contained" color="success"> Upgrade to Pro!</Button></div>
             </div>
-        </Grid>
-        <Grid item xs={14}>
-          <div>
+      </div>
+      
+
+      {/* ////////////////////////////////////////////////////////////////////////////////// */}
+      <div style={{width:"85%"}}>
+      <div>
               Search bar  notofications username avatar
           </div>
 
@@ -131,8 +164,8 @@ function ColumnsGrid() {
             </div>
             <div style={{width:"50%"}}>Development approach</div>
           </div >
-        </Grid>
-      </Grid>
-    </Box>
+      </div>
+    </div>
+   
   );
 }

@@ -2,8 +2,17 @@
   text-align: center;
 } */
 
+.main-divider{
+  display: flex;
+  flex-direction: row;
+
+}
 
 .flex-row{
   display: flex;
   flex-direction: row;
+}
+.side-bar{
+  padding-bottom: 50px;
+  padding-left: 20px;
 }
