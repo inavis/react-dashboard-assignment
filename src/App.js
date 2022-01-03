@@ -331,7 +331,7 @@ function SideBar({extracode}){
      </div>
      <div> <Button color="inherit"  onClick={()=>{setvisible2(!visible2)}}><BuildIcon/> Utilities <ChevronRightIcon  /></Button></div>
      
-     <div style={style2} className='sub-menu' className='bg-white color-black spacing'>
+     <div style={style2}  className='bg-white color-black spacing sub-menu'>
        <div><small className='color-lightgray'>CUSTOM UTILITIES</small></div>
        <div><Button color="inherit" onClick={()=>history.push("/Colors")}>Colors</Button></div>
        <div><Button color="inherit" onClick={()=>history.push("/Borders")}>Borders</Button></div>
